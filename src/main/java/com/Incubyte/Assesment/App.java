@@ -10,6 +10,7 @@ public class App
 	public static int add(String string) {
 		// TODO Auto-generated method stub
 		int sum=0;
+		String neg="";
 		
 		if(string.length()==0)
 		{
@@ -20,15 +21,25 @@ public class App
 			{
 				if(Character.isDigit(string.charAt(i)))
 						{
-					if(Integer.parseInt(String.valueOf(string.charAt(i)))>0)
+					if(Integer.parseInt(String.valueOf(string.charAt(i)))<0)
 					{
+						neg=neg+string.charAt(i);
+						
+					}
+					else
+					{
+					
 					
 						sum=sum+Integer.parseInt(String.valueOf(string.charAt(i)));
 					}
 						}
 			}
+		}if(neg.length()!=0)
+		{
+	    	throw new IllegalArgumentException("Negatives not allowed: " + neg);
 		}
+	    
+	
+	//	
 		return sum;
-	}
-    
-}
+			}}

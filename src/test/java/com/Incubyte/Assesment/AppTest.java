@@ -27,5 +27,22 @@ public class AppTest
     	assertEquals(3, App.add("//;\n1;2"));
     }
 	
+	@Test
+	public void testNegativeNumber()
+	{
+		try {
+			App.add("-1,2");
+		}
+		catch(IllegalArgumentException e)
+		{
+			assertEquals(e.getMessage(), "Negatives not allowed: -1");
+		}
+		try {
+			App.add("2,-4,3,-5");
+		}
+		catch (IllegalArgumentException e){
+			assertEquals(e.getMessage(), "Negatives not allowed: -4,-5");
+		}
+	}
    
 }

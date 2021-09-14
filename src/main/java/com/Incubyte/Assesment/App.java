@@ -22,7 +22,7 @@ public class App
 						{
 					if(Integer.parseInt(String.valueOf(string.charAt(i)))>0)
 					{
-						
+					
 						sum=sum+Integer.parseInt(String.valueOf(string.charAt(i)));
 					}
 						}

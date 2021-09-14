@@ -22,6 +22,10 @@ public class AppTest
 	public void testTwoNumberString() {
 		assertEquals(8, App.add("3,5"));
 	}
+	@Test
+    public void testOtherDelimeter(){
+    	assertEquals(3, App.add("//;\n1;2"));
+    }
 	
    
 }

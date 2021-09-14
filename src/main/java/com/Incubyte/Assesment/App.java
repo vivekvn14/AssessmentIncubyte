@@ -9,37 +9,50 @@ public class App
 
 	public static int add(String string) {
 		// TODO Auto-generated method stub
-		int sum=0;
-		String neg="";
+		
 		
 		if(string.length()==0)
 		{
 			return 0;
 		}else
-		{
-			for(int i=0;i<string.length();i++)
 			{
-				if(Character.isDigit(string.charAt(i)))
-						{
-					if(Integer.parseInt(String.valueOf(string.charAt(i)))<0)
-					{
-						neg=neg+string.charAt(i);
-						
-					}
-					else
-					{
-					
-					
-						sum=sum+Integer.parseInt(String.valueOf(string.charAt(i)));
-					}
-						}
+			String delimiter = ",";
+			if(string.matches("//(.*)\n(.*)")){
+				delimiter = Character.toString(string.charAt(2));
+				string = string.substring(4);
 			}
-		}if(neg.length()!=0)
-		{
-	    	throw new IllegalArgumentException("Negatives not allowed: " + neg);
+			
+			String numList[] = splitNumbers(string, delimiter + "|\n");
+			return sum(numList);
 		}
-	    
-	
-	//	
-		return sum;
-			}}
+	}
+
+	private static int toInt(String number){
+		return Integer.parseInt(number);
+	}
+
+	private static String[] splitNumbers(String numbers, String divider){
+	    return numbers.split(divider);
+	}
+
+	private static int sum(String[] numbers){
+ 	    int total = 0;
+ 	    String negString = "";
+
+        for(String number : numbers){
+        	if(toInt(number) < 0){
+        		if(negString.equals(""))
+        			negString = number;
+        		else
+        			negString += ("," + number);
+        	}
+        	
+		    	total += toInt(number);
+		}
+
+		if(!negString.equals("")){
+			throw new IllegalArgumentException("Negatives not allowed: " + negString);
+		}
+
+		return total;
+    }}

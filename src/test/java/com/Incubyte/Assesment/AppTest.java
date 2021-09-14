@@ -26,6 +26,10 @@ public class AppTest
     public void testOtherDelimeter(){
     	assertEquals(3, App.add("//;\n1;2"));
     }
+	@Test
+    public void testMoreThanTwoNumber(){
+    	assertEquals(36, App.add("1,2,33"));
+    }
 	
 	@Test
 	public void testNegativeNumber()

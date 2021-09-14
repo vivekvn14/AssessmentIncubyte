@@ -14,5 +14,14 @@ public class AppTest
 	public void testEmptyString() {
 		assertEquals(0, App.add(""));
 	}
+	@Test
+	public void testSingleNumberString() {
+		assertEquals(3, App.add("3"));
+	}
+	@Test
+	public void testTwoNumberString() {
+		assertEquals(8, App.add("3,5"));
+	}
+	
    
 }

@@ -44,5 +44,10 @@ public class AppTest
 			assertEquals(e.getMessage(), "Negatives not allowed: -4,-5");
 		}
 	}
+	@Test
+	public void testNewLine()
+	{
+		assertEquals(6, App.add("1\n2,3"));
+	}
    
 }
